@@ -7,20 +7,11 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      overflow: hidden;
-      background-color: #ffffff;
-    }
-
-    .es-roof-calc-widget {
-      display: block;
-      width: 100%;
       height: 100%;
+      overflow: hidden;
     }
-
     #grl-widget-container,
-    .grl-widget-modal,
-    iframe[src*="gorillaroofleads"] {
+    .grl-widget-modal {
       position: fixed !important;
       top: 50% !important;
       left: 50% !important;
@@ -31,7 +22,6 @@
       border: none;
       background: white;
     }
-
     .grl-overlay {
       display: none !important;
     }
@@ -40,7 +30,7 @@
 <body>
   <div class="es-roof-calc-widget" data-widgetdata='{
     "dealer_unique_id":"1714726c817af50457d810aae9d27a2e",
-    "buttonText":"INVISIBLE BUTTON",
+    "buttonText":"HIDDEN",
     "borderColor":"#000000",
     "primaryColor":"#d51d16",
     "fontsize":"16px",
@@ -53,14 +43,14 @@
 
   <script src="https://widget.gorillaroofleads.com/index.js"></script>
   <script>
-    function showForm() {
-      if (typeof GorillaRoofLeads !== "undefined" && typeof GorillaRoofLeads.showWidget === "function") {
+    const triggerPopup = () => {
+      if (window.GorillaRoofLeads?.showWidget) {
         GorillaRoofLeads.showWidget();
       } else {
-        setTimeout(showForm, 200);
+        setTimeout(triggerPopup, 200);
       }
-    }
-    document.addEventListener("DOMContentLoaded", showForm);
+    };
+    document.addEventListener("DOMContentLoaded", triggerPopup);
   </script>
 </body>
 </html>
