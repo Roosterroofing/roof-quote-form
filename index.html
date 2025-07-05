@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Instant Roof Quote</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background: #ffffff;
-    }
-
-    .es-roof-calc-widget {
-      display: block; /* make sure widget renders */
-    }
-
-    /* Force popup form to look like an embedded section */
-    #grl-widget-container,
-    .grl-widget-modal,
-    iframe[src*="gorillaroofleads"] {
-      position: relative !important;
-      top: auto !important;
-      left: auto !important;
-      transform: none !important;
-      width: 100% !important;
-      height: 100vh !important;
-      max-width: 100% !important;
-      max-height: none !important;
-      z-index: 1 !important;
-      overflow: visible !important;
-      box-shadow: none !important;
-      border-radius: 0 !important;
-      background: white !important;
-    }
-
-    .grl-overlay {
-      display: none !important;
-    }
-  </style>
-</head>
-<body>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Instant Roof Quote</title>
+<style>html,body{margin:0;padding:0;height:100%;overflow:hidden;} .es-roof-calc-widget{display:block;width:100%;height:100vh;}</style>
+</head><body>
   <div class="es-roof-calc-widget" data-widgetdata='{
     "dealer_unique_id":"1714726c817af50457d810aae9d27a2e",
     "buttonText":"GET AN INSTANT ROOF QUOTE",
@@ -49,23 +9,19 @@
     "fontsize":"16px",
     "fontFamily":"sans-serif",
     "textColor":"#ffffff",
-    "width":"300px",
+    "width":"100%",
     "animation":"none",
     "padding":"15px 30px"
   }'></div>
-
   <script src="https://widget.gorillaroofleads.com/index.js"></script>
   <script>
-    // Wait until the widget is initialized, then trigger it
-    function waitForWidget() {
-      if (typeof GorillaRoofLeads !== "undefined" && typeof GorillaRoofLeads.showWidget === "function") {
+    function ready() {
+      if (window.GorillaRoofLeads?.showWidget) {
         GorillaRoofLeads.showWidget();
       } else {
-        setTimeout(waitForWidget, 200);
+        setTimeout(ready, 200);
       }
     }
-
-    document.addEventListener("DOMContentLoaded", waitForWidget);
+    document.addEventListener("DOMContentLoaded", ready);
   </script>
-</body>
-</html>
+</body></html>
