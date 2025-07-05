@@ -1,27 +1,66 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Instant Roof Quote</title>
-<style>html,body{margin:0;padding:0;height:100%;overflow:hidden;} .es-roof-calc-widget{display:block;width:100%;height:100vh;}</style>
-</head><body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instant Roof Quote</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .es-roof-calc-widget {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #grl-widget-container,
+    .grl-widget-modal,
+    iframe[src*="gorillaroofleads"] {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 95vw !important;
+      height: 95vh !important;
+      z-index: 9999 !important;
+      border: none;
+      background: white;
+    }
+
+    .grl-overlay {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
   <div class="es-roof-calc-widget" data-widgetdata='{
     "dealer_unique_id":"1714726c817af50457d810aae9d27a2e",
-    "buttonText":"GET AN INSTANT ROOF QUOTE",
+    "buttonText":"INVISIBLE BUTTON",
     "borderColor":"#000000",
     "primaryColor":"#d51d16",
     "fontsize":"16px",
     "fontFamily":"sans-serif",
     "textColor":"#ffffff",
-    "width":"100%",
+    "width":"300px",
     "animation":"none",
     "padding":"15px 30px"
   }'></div>
+
   <script src="https://widget.gorillaroofleads.com/index.js"></script>
   <script>
-    function ready() {
-      if (window.GorillaRoofLeads?.showWidget) {
+    function showForm() {
+      if (typeof GorillaRoofLeads !== "undefined" && typeof GorillaRoofLeads.showWidget === "function") {
         GorillaRoofLeads.showWidget();
       } else {
-        setTimeout(ready, 200);
+        setTimeout(showForm, 200);
       }
     }
-    document.addEventListener("DOMContentLoaded", ready);
+    document.addEventListener("DOMContentLoaded", showForm);
   </script>
-</body></html>
+</body>
+</html>
