@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instant Roof Quote</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="es-roof-calc-widget" data-widgetdata='{
+    "dealer_unique_id":"1714726c817af50457d810aae9d27a2e",
+    "buttonText":"GET AN INSTANT ROOF QUOTE",
+    "borderColor":"#000000",
+    "primaryColor":"#d51d16",
+    "fontsize":"16px",
+    "fontFamily":"sans-serif",
+    "textColor":"#ffffff",
+    "width":"300px",
+    "animation":"none",
+    "padding":"15px 30px"
+  }' style="display: none;"></div>
+
+  <script src="https://widget.gorillaroofleads.com/index.js"></script>
+  <script>
+    const waitForWidget = setInterval(() => {
+      if (typeof GorillaRoofLeads !== "undefined") {
+        clearInterval(waitForWidget);
+        GorillaRoofLeads.showWidget(); // This triggers the popup
+      }
+    }, 100);
+  </script>
+</body>
+</html>
